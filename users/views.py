@@ -6,7 +6,7 @@ from .forms import UserRegisterForm
 
 
 def register(request):
-    if request.metrod == 'POST':
+    if request.method == 'POST':
         form=UserRegisterForm(request.POST)
         if form.is_valid():
             form.save()
@@ -15,4 +15,4 @@ def register(request):
             return redirect('blog-home')
     else:
         form=UserRegisterForm()
-    return render(request, 'user/register.html', {'form':form})    
+    return render(request, 'users/register.html', {'form':form})    
